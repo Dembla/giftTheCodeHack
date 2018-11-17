@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
-import RegisterForm from './components/RegisterForm'
+import RegisterParticipant from './components/RegisterParticipant';
+import RegisterEvent from './components/RegisterEvent';
+import EventAttendence from './components/EventAttendence';
 
 class App extends Component {
   constructor(props) {
@@ -10,10 +12,13 @@ class App extends Component {
     this.state = {
       email: '',
       numberOfAttendees: 1,
+      participants: []
     };
 
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEventSubmit = this.handleEventSubmit.bind(this);
+    this.handleAttendeesChange = this.handleAttendeesChange.bind(this);
   }
   
   componentDidMount() {
@@ -33,6 +38,11 @@ class App extends Component {
     this.setState({email: event.target.value});
   }
 
+  handleAttendeesChange(event) {
+    console.log(event.target.value)
+    this.setState({numberOfAttendees: event.target.value});
+  }
+
   handleSubmit(event) {
     // alert('A name was submitted: ' + this.state.email);
     event.preventDefault();
@@ -40,6 +50,24 @@ class App extends Component {
       email: this.state.email,
       numberOfAttendees: this.state.numberOfAttendees
     });
+
+    // temp //
+    this.setState(prevState => ({
+      participants: [...prevState.participants, {
+        email: this.state.email,
+        numberOfAttendees: this.state.numberOfAttendees
+      }]
+    }))
+
+
+    // this.clearInput();
+  }
+
+  handleEventSubmit(event) {
+    // alert('A name was submitted: ' + this.state.email);
+    event.preventDefault();
+    // axios.post('/registered', {
+    // });
     // this.clearInput();
   }
 
@@ -47,10 +75,18 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <RegisterForm 
+          <RegisterParticipant 
+            numberOfAttendees={this.state.numberOfAttendees}
             email={this.state.email}
             handleEmailChange={this.handleEmailChange}
+            handleAttendeesChange={this.handleAttendeesChange}
             handleSubmit={this.handleSubmit}
+          />
+          <RegisterEvent 
+            handleEventSubmit={this.handleEventSubmit}
+          />
+          <EventAttendence 
+            participants={this.state.participants}
           />
         </header>
       </div>
