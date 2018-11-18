@@ -5,6 +5,7 @@ import axios from 'axios';
 import RegisterParticipant from './components/RegisterParticipant';
 import RegisterEvent from './components/RegisterEvent';
 import EventAttendence from './components/EventAttendence';
+import Dashboard from './components/AdminDashboad';
 
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
@@ -107,11 +108,6 @@ const AppRouter = () => (
   </BrowserRouter>
 )
 
-const Dashboard = () => (
-  <div>
-    <h1>This will be the dashboard</h1>
-  </div>
-)
 
 const PageNotFound = () => (
   <div>
