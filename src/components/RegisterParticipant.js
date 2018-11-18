@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+const inputStyle = {
+  
+};
+
 const RegisterParticipant = props => (
   <form onSubmit={props.handleSubmit}>
     <h1>Register Your Child</h1>
@@ -16,6 +20,7 @@ const RegisterParticipant = props => (
         value={props.email} 
         onChange={props.handleEmailChange} />
     </label>
+    <br/>
     <input type="submit" value="Submit" />
   </form>
 );

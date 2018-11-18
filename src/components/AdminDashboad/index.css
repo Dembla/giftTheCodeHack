@@ -1,0 +1,55 @@
+:root{
+  --green: #7AC143;
+  --greyLight: #F2F2F2;
+  --greyMid: #606060;
+  --greyDark: #404040;
+}
+
+.admin__page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 14em auto;
+  grid-template-rows: 4em auto;
+  grid-template-areas: 
+    "header header"
+    "nav main";
+}
+
+.admin__header {
+  grid-area: header;
+  background: #fff;
+  box-shadow: 0px 0px 5px var(--greyDark);
+}
+
+.admin__nav {
+  grid-area: nav;
+  background: var(--greyMid);
+}
+
+.admin__nav h2 {
+  background: var(--greyDark);
+  margin: 0;
+  color: var(--greyLight);
+  padding: 0.4em 0.8em;
+  font-weight: normal;
+}
+
+.admin__nav ul {
+  list-style-type: none;
+  color: var(--greyLight);
+  padding: 1em 0;
+}
+
+.admin__nav li {
+  padding: 0.8em 1em;
+}
+
+.admin__nav li.selected {
+  background: var(--green);
+  box-shadow: 0px 0px 5px var(--greyDark);
+}
+
+.admin__main {
+  grid-area: main;
+  background: var(--greyLight);
+}
