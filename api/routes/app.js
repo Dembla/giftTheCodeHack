@@ -45,52 +45,52 @@ app.post('/api/posts', (req, res, next) => {
 
 app.get('/api/posts', (req, res, next) => {
    
-    // Post.find()
-    // .then(documents => {
-    //     res.status(200).json({
-    //         message: "Post successfull",
-    //         post: documents
-    //     });
-    // });
-
-    const posts = [
-       {
-            id: 'uwioeuw',
-            age: '7',
-            province: {
-                id: '1',
-                type :'ON'
-            },
-            club: {
-                id: 'club1',
-                name:'Central Tech TDSB - Service Location'
-            },
-            event: {
-                location : 'toronto',
-                type: 'Soccer2018'
-            },
-        },
-        {
-            id: 'mskadns',
-            age: '12',
-            province: {
-                id: '2',
-                type :'MB'
-            },
-            club: {
-                id: 'club2',
-                name:'T.P. Loblaw Site at St. Mary'
-            },
-            event: {
-                location : 'toronto',
-                type: 'Hockey2018'
-            },
-        }
-    ];
-    res.status(200).json({
-        message: "Post successfull",
-        post: posts[1]
+    Post.find()
+    .then(documents => {
+        res.status(200).json({
+            message: "Post successfull",
+            post: documents
+        });
     });
+
+    // const posts = [
+    //    {
+    //         id: 'uwioeuw',
+    //         age: '7',
+    //         province: {
+    //             id: '1',
+    //             type :'ON'
+    //         },
+    //         club: {
+    //             id: 'club1',
+    //             name:'Central Tech TDSB - Service Location'
+    //         },
+    //         event: {
+    //             location : 'toronto',
+    //             type: 'Soccer2018'
+    //         },
+    //     },
+    //     {
+    //         id: 'mskadns',
+    //         age: '12',
+    //         province: {
+    //             id: '2',
+    //             type :'MB'
+    //         },
+    //         club: {
+    //             id: 'club2',
+    //             name:'T.P. Loblaw Site at St. Mary'
+    //         },
+    //         event: {
+    //             location : 'toronto',
+    //             type: 'Hockey2018'
+    //         },
+    //     }
+    // ];
+    // res.status(200).json({
+    //     message: "Post successfull",
+    //     post: posts[1]
+    // });
 });
 
 module.exports = app;

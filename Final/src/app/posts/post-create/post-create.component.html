@@ -1,0 +1,68 @@
+<mat-card>
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="age"
+        ngModel
+        required
+        minlength="3"
+        placeholder="Enter Age"
+        #title="ngModel">
+      <mat-error *ngIf="false">Please enter age.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="province"
+        ngModel
+        required
+        placeholder="Enter Province"
+        #content="ngModel">Province</textarea>
+        <mat-select matInput placeholder="State">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+        </mat-select>
+      <mat-error >Please enter a province.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="club"
+        ngModel
+        required
+        placeholder="Enter Club Name"
+        #content="ngModel">Clubs</textarea>
+        <mat-select matInput placeholder="Club">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let club of clubs" [value]="club">{{club}}</mat-option>
+        </mat-select>
+      <mat-error>Please Choose Club Name.</mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="event"
+        ngModel
+        required
+        placeholder="Enter Event"
+        #content="ngModel">Events</textarea>
+        <mat-select matInput placeholder="Club">
+          <mat-option>None</mat-option>
+          <mat-option *ngFor="let event of events" [value]="club">{{event}}</mat-option>
+        </mat-select>
+      <mat-error>Please Enter an event.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Post</button>
+  </form>
+</mat-card>
