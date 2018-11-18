@@ -1,5 +1,13 @@
-# MeanCourse
+FINAL is name the project in the repo which has the final code. PLEASE look into that. 
+Do npm install and open the two separate terminal and do :
+Temirnal 1 : ng serve 
+terminal 2 : node server.js
 
+open chrome browser and type localhost:4200 and congratulations :) 
+
+This project was started in React and Angular. 
+
+Angular, nodejs, R, python are the main programming language.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
 
 ## Development server
