@@ -6,21 +6,15 @@ import RegisterParticipant from './components/RegisterParticipant';
 import RegisterEvent from './components/RegisterEvent';
 import EventAttendence from './components/EventAttendence';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: '',
-      numberOfAttendees: 1,
-      participants: []
-    };
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleEventSubmit = this.handleEventSubmit.bind(this);
-    this.handleAttendeesChange = this.handleAttendeesChange.bind(this);
+class App extends Component {
+  state = {
+    email: '',
+    numberOfAttendees: 1,
+    participants: []
   }
-  
+
   componentDidMount() {
     axios
       .get('/healthcheck')
@@ -33,17 +27,17 @@ class App extends Component {
       })
   }
 
-  handleEmailChange(event) {
+  handleEmailChange = (event) => {
     console.log(event.target.value)
     this.setState({email: event.target.value});
   }
 
-  handleAttendeesChange(event) {
+  handleAttendeesChange = (event) => {
     console.log(event.target.value)
     this.setState({numberOfAttendees: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmit = (event) => {
     // alert('A name was submitted: ' + this.state.email);
     event.preventDefault();
     axios.post('/registered', {
@@ -73,7 +67,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App">      
         <header className="App-header">
           <RegisterParticipant 
             numberOfAttendees={this.state.numberOfAttendees}
@@ -94,4 +88,34 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const AppRouter = () => (
+  <BrowserRouter>
+    <div>
+      <Link to="/" exact={true}>HOME</Link>
+      <Link to='/Dashboard'>Admin Dashboard</Link>
+
+      <Switch>
+        <Route path="/" component={App} exact={true} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route component={PageNotFound} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+)
+
+const Dashboard = () => (
+  <div>
+    <h1>This will be the dashboard</h1>
+  </div>
+)
+
+const PageNotFound = () => (
+  <div>
+    HELLO. Page not found. 
+  </div>
+)
+
+
+
+export default AppRouter;
