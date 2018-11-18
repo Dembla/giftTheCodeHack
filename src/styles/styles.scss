@@ -1,0 +1,44 @@
+.topHeading {
+  background: #FFFFFF;  
+  display: flex;
+  justify-content: space-between;
+}
+
+.topHeading__logo {
+  width: 275px;
+  border: none;
+  margin-right: auto;
+}
+
+.topHeading__welcomeMsg {
+  display: flex;
+}
+
+.topHeading__profilePhoto {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: black;
+  overflow: hidden;
+}
+
+.dashboard {
+  padding: 25px;
+}
+
+.dashboardwrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboardWrapper__sidenav {
+  background: #E0E0E0;
+  width: 400px;
+
+}
+
+.dashboardWrapper__main {
+  background: #F0F0F0;
+  width: 100%;
+}
+

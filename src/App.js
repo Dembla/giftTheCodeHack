@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
 import axios from 'axios';
+import './App.css';
 import RegisterParticipant from './components/RegisterParticipant';
 import RegisterEvent from './components/RegisterEvent';
 import EventAttendence from './components/EventAttendence';
