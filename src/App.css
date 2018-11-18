@@ -22,6 +22,15 @@
   color: #61dafb;
 }
 
+.nav--main {
+  display: flex;
+  flex-direction: row;
+}
+
+.nav--main a {
+  padding: 0.2em 0.6em;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

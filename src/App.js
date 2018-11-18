@@ -92,14 +92,17 @@ class App extends Component {
 const AppRouter = () => (
   <BrowserRouter>
     <div>
-      <Link to="/" exact={true}>HOME</Link>
-      <Link to='/Dashboard'>Admin Dashboard</Link>
-
-      <Switch>
-        <Route path="/" component={App} exact={true} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route component={PageNotFound} />
-      </Switch>
+      <nav className="nav--main">
+        <Link to="/" exact={true}>HOME</Link>
+        <Link to='/Dashboard'>Admin Dashboard</Link>
+      </nav>
+      <div>
+        <Switch>
+          <Route path="/" component={App} exact={true} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route component={PageNotFound} />
+        </Switch>
+      </div>
     </div>
   </BrowserRouter>
 )
